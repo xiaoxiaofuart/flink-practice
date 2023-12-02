@@ -14,7 +14,7 @@ public class WaterSensor {
         /*
          * 水位线id
          * */
-        private Long id;
+        private String id;
 
          /*
         * 水位线记录时间戳
@@ -26,12 +26,20 @@ public class WaterSensor {
          * */
         private Integer vc;
 
+    public WaterSensor() {
+    }
 
-    public Long getId() {
+    public WaterSensor(String id, Long ts, Integer vc) {
+        this.id = id;
+        this.ts = ts;
+        this.vc = vc;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -63,5 +71,15 @@ public class WaterSensor {
     @Override
     public int hashCode() {
         return Objects.hash(id, ts, vc);
+    }
+
+
+    @Override
+    public String toString() {
+        return "WaterSensor{" +
+                "id='" + id + '\'' +
+                ", ts=" + ts +
+                ", vc=" + vc +
+                '}';
     }
 }
